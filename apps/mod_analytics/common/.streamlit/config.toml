@@ -1,0 +1,5 @@
+[client]
+showSidebarNavigation = true
+
+[server]
+runOnSave = true

@@ -1,0 +1,13 @@
+ARG BASE_IMAGE=python:3.10-slim-buster
+FROM $BASE_IMAGE
+COPY mod_code_interpreter/requirements.txt /tmp/requirements.txt
+RUN pip install --upgrade pip && \
+    pip install -r /tmp/requirements.txt
+COPY mod_code_interpreter /app/mod_code_interpreter
+ENV PYTHONPATH=/app
+WORKDIR /apps
+COPY common_app_files /app/common_app_files
+COPY project_path.py /app/project_path.py
+RUN chmod +x /app/mod_code_interpreter/entrypoint.sh
+EXPOSE 8501
+CMD ["/app/mod_code_interpreter/entrypoint.sh"]

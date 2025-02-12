@@ -1,0 +1,11 @@
+streamlit==1.35.0
+openai==1.25.0
+python-docx==1.1.2
+#snowflake-connector-python==3.10.0
+snowflake-connector-python==3.12.2
+snowflake-snowpark-python==1.18.0
+pypdf2==2.10.5
+pdfminer.six==20240706
+plotly-express==0.4.1
+fpdf2==2.5.6
+

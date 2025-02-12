@@ -1,0 +1,13 @@
+ARG BASE_IMAGE=python:3.10-slim-buster
+FROM $BASE_IMAGE
+COPY meeting_bot/requirements.txt /tmp/requirements.txt
+RUN pip install --upgrade pip && \
+    pip install -r /tmp/requirements.txt
+COPY meeting_bot /app/meeting_bot
+ENV PYTHONPATH=/app
+COPY common_app_files /app/common_app_files
+COPY project_path.py /app/project_path.py
+WORKDIR /app
+RUN chmod +x /app/meeting_bot/entrypoint.sh
+EXPOSE 8501
+CMD ["/app/meeting_bot/entrypoint.sh"]

@@ -1,0 +1,11 @@
+environments:
+ dev:
+  org_identifier: vwbzlqo
+  account_identifier: modulrfinancetest
+  region: eu-west-2
+  cloud_provider: aws
+ prd:
+  org_identifier: vwbzlqo
+  account_identifier: modulrfinanceprod
+  region: eu-west-2
+  cloud_provider: aws
