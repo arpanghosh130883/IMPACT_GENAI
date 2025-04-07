@@ -1,0 +1,18 @@
+spec:
+  containers:
+  - name: mod-analytics
+    image: /impact_genai/mod_analytics/mod_analytics_image_repository/mod_analytics_image:latest
+    env:
+      SNOWFLAKE_WAREHOUSE: genai_wh
+    secrets:
+    - snowflakeSecret: core.impact_etl.sf_openapi_key
+      secretKeyRef: secret_string
+      envVarName: OPENAI_KEY
+  endpoints:
+  - name: streamlit
+    port: 8501
+    public: true
+serviceRoles:
+- name: streamlit_endpoint_role
+  endpoints:
+  - streamlit
